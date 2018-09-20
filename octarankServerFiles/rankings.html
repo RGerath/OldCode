@@ -1,0 +1,54 @@
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title id='pageTitle'></title>
+	<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+	
+	
+	<style>
+	.top {
+		position: absolute;
+		left:50; right:0;
+		height: 50px;
+		outline: black;
+	}
+	.left {
+		position: absolute;
+		left:0; top:92px; bottom: 0;
+		width: 400px;
+		outline: black;
+	}
+	.main {
+		position: absolute;
+		left:415px; top:92px; right:0; bottom:0;
+		outline: black;
+	}
+	</style>
+</head>
+
+<body>
+	
+	<div id='mainDisplay'>
+		<!-- it will be necessary at some point to redefine this page according to a general weight-class -->
+		<h2 id='subTitle'></h2>
+		<div class="top">
+			<a href="octarank.html">OctaRank Home</a>
+		</div>
+		
+		<div class="left" id='rankDisplay'>
+			
+		</div>
+		
+		<div class="main" id='panelDiv'>
+			<p>SELECTED FIGHTER</p>
+		</div>
+		
+	</div>
+
+
+<script src='rankingsB.js'></script>
+	
+</body>
+
+</html>

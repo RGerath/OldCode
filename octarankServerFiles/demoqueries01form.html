@@ -1,0 +1,34 @@
+<html>
+
+	<head>
+	<meta charset="UTF-8">
+	<title>Temp004</title>
+	</head>
+	
+	<body>
+	
+		The following form should add a row to the bnpairs table such that the FID entered for Barrier corresponds to the barrier and the FID entered Net corresponds to the net. 
+		
+		For this version, Temp004, let us not concern ourselves with the possibility that the FIDs entered to this form may be invalid. 
+		
+		However, there should be validation to at least ensure that two values have been passed.
+		
+		<form action="http://localhost/demoqueries01script.php" method="post">
+		
+		    <p>
+				<label for="fighter1">Barrier:</label>
+				<input type="text" name="bar" id="BAR" required>
+			</p>
+			
+			<p>
+				<label for="fighter2">Net:</label>
+				<input type="text" name="net" id="NET" required>
+			</p>
+			
+			<input type="submit" value="Test Query">
+			
+		</form>
+		
+	</body>
+	
+</html>

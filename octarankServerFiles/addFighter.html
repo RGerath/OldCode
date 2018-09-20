@@ -1,0 +1,53 @@
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>Add Fighter</title>
+</head>
+
+<body>
+	
+	Only admin users should have access to this page.
+	
+	<br><br>
+	
+	Fill in the form below to add a fighter to the database. The fighter will be automatically assigned a new fighter ID (FID).
+	
+	<form action="http://localhost/addFighter.php" method="post">
+		<p>
+			<label for="fname">Full Name (as it should appear on the site):</label>
+			<input type="text" name="fname" id="fnameInput" required>
+		</p>
+		
+		<p>
+			<label for="fstreaksign">Initial Streak Type:</label><br>
+			<input type="radio" name="fstreaksign" value=1> Winning Streak<br>
+			<input type="radio" name="fstreaksign" value=-1> Losing Streak<br>
+			<input type="radio" name="fstreaksign" value=0> Drawing Streak<br>
+		</p>
+		
+		<p>
+			<label for="fstreaklength">Initial Streak Length:</label>
+			<input type="number" name="fstreaklength" id="fstreaklengthInput">
+		</p>
+		
+		<p>
+			<label for="fwins">Initial Win Count:</label>
+			<input type="number" name="fwins" id="fwinsInput">
+		</p>
+		
+		<p>
+			<label for="flosses">Initial Loss Count:</label>
+			<input type="number" name="flosses" id="flossesInput">
+		</p>
+		
+		<p>
+			<label for="fdraws">Initial Draw Count:</label>
+			<input type="number" name="fdraws" id="fdrawsInput">
+		</p>
+		
+		<input type="submit" value="Add Fight">
+	</form>
+</body>
+
+</html>

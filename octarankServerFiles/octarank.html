@@ -1,0 +1,98 @@
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>OCTARANK</title>
+	
+	<style>
+	<!-- These will need to be rewritten to allow relative positioning -->
+	<!-- I'm pretty sure it's not even symmetric at present -->
+	.top{
+		position: absolute;
+		height: 75px;
+	}
+	.left{
+		position: absolute;
+		top: 80px; bottom: 80px;
+		width: 250px;
+	}
+	.main{
+		position: absolute;
+		top: 80px; left: 260px; bottom: 80px;
+		width: 600px; height: 1000px;
+	}
+	.right{
+		position: absolute;
+		left: 900px; top: 80px; bottom: 80px;
+		width: 250px;
+	}
+	.bottom{
+		position: absolute;
+		top: 1160px;
+		height: 75px;
+	}
+	</style>
+</head>
+
+<body>
+
+<div class="top" id="bannerDisplay">
+
+<!-- This will hold key navigation options, arrayed horizontally -->
+	<h3>OCTARANK MMA INDEX AND ARCHIVE</h3>
+</div>
+
+
+<div class="bottom" id="footerDisplay">
+<!-- This will hold information and links regarding Octarank itself, arrayed in vertical lists -->
+</div>
+
+
+<div class="main" id="centralDisplay">
+<!-- This will hold a summary of important Octarank info -->
+
+	<h4>The Algorithm</h4>
+	<h5>Stage 1: Reverse</h5>
+	<p>This means you're coming off a loss against soemone lineally behind the person whom you're about to fight, so it will pull the fighter you're about to potentially defeat backward in that sequence.</p>
+	<p>You're Fighter A. You're coming off a loss against Fighter B, your barrier. Fighter B's barrier is Fighter C, and Fighter C's barrier is Fighter D.</p>
+
+
+	<h5>Stage 2: Still Attached</h5>
+	<p>You won or drew in your last fight, so this attempted pass won't have reverse effects  - *but,* your name is still in the active win streak of the fighter you're attempting to pass.</p>
+	<p>Imagine he/she's latching onto you as you attempt to leap through that portal. You both will go forward, but he/she will lead the sequence, and the barrier-break(s) will go to that person first and foremost.</p>
+
+
+	<h5>Stage 3: All You</h5>
+	<p>If you've won or drew once since your loss to a person lineally behind the person upon whom you now set your sights, and your name isn't still in the active win streak of anyone lineally behind you're upcoming opponent, you can break that barrier.</p>
+	<p>Once again, you're Fighter A. Your barrier is Fighter B. Fighter B's barrier is Fighter C, and Fighter C's barrier is Fighter D.</p>
+
+</div>
+
+
+<div class="left" id="mensDisplay">
+<!-- This will hold a list of men's weight-classes, arrayed vertically -->
+<p>MEN'S WEIGHT CLASSES:</p>
+
+<!-- Each item in the list should be a hyperlink to that weight-class's ranking page -->
+
+
+
+</div>
+
+
+<div class="right" id="womensDisplay">
+<!-- This will hold a list of women's weight classes, arrayed vertically -->
+<p>WOMEN'S WEIGHT CLASSES:</p>
+
+<!-- Each item in the list should be a hyperlink to that weight-class's ranking page -->
+
+<ul>
+	<li><a href="rankings.html?strWC=WAW">Atom Weight (WAW)</a></li>
+</ul>
+
+</div>
+
+
+</body>
+
+</html>

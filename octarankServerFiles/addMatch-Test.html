@@ -1,0 +1,49 @@
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>Add Match</title>
+</head>
+
+<body>
+	
+	Enter either the ID numbers of the competing fighters, or else enter their full names as they appear in the database. Enter the two-to-four letter acronym for the weight-class.
+	
+	<form action="http://localhost/addMatch-Test.php" method="post">
+		<p>
+			<label for="drawCheck">Did this match draw?</label>
+			<input type="checkbox" name="drawCheck" value="Yes">
+		</p>
+	
+		<p>
+			<label for="fid1">Fighter 1 (winner):</label>
+			<input type="text" name="fid1" id="fid1Input" required>
+		</p>
+		
+		<p>
+			<label for="fid2">Fighter 2 (loser):</label>
+			<input type="text" name="fid2" id="fid2Input" required>
+		</p>
+		
+		<p>
+			<label for="wc">Weight Class:</label><br>
+			<input type="radio" name="wc" value="HW"> Heavy-Weight<br>
+			<input type="radio" name="wc" value="LHW"> Light Heavy-Weight<br>
+			<input type="radio" name="wc" value="MW"> Medium-Weight<br>
+			<input type="radio" name="wc" value="WW"> Welter-Weight<br>
+			<input type="radio" name="wc" value="LW"> Light-Weight<br>
+			<input type="radio" name="wc" value="FW"> Feather-Weight<br>
+			<input type="radio" name="wc" value="BW"> Bantam-Weight<br>
+			<input type="radio" name="wc" value="FLW"> Fly-Weight<br>
+			<input type="radio" name="wc" value="WFW"> Women's Feather-Weight<br>
+			<input type="radio" name="wc" value="WBW"> Women's Bantam-Weight<br>
+			<input type="radio" name="wc" value="WFLW"> Women's Fly-Weight<br>
+			<input type="radio" name="wc" value="WSW"> Women's Straw-Weight<br>
+			<input type="radio" name="wc" value="WAW"> Women's Atom-Weight
+		</p>
+		
+		<input type="submit" value="Add Match">
+	</form>
+</body>
+
+</html>
