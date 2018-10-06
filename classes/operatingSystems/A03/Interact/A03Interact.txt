@@ -1,0 +1,63 @@
+Bob Gerath
+OS A03
+Interact - Methodology
+
+I first generated a 50kb file of random data and two identical programs which mapped and copied that file through memory for a loop of 100000 iterations. When each program completed, it output a message indicating that fact.
+
+I then introduced the 'nice' system call to the source code for p2, increasing the nice value for that process to 19. Then, when I ran the two programs simultaneously, p1 would consistently finish first.
+
+$ time ./p1 & time ./p2 &
+[1] 746
+[2] 747
+Job 1 done
+real	0m11.525s
+user	0m0.517s
+sys	0m4.043s
+Job 2 done
+real	0m22.604s
+user	0m0.547s
+sys	0m4.007s
+[1]-  Done                    time ./p1
+[2]+  Done                    time ./p2
+
+$ time ./p1 & time ./p2 &
+[1] 752
+[2] 753
+Job 1 done
+real	0m11.658s
+user	0m0.643s
+sys	0m3.960s
+Job 2 done
+real	0m22.989s
+user	0m0.610s
+sys	0m4.003s
+[1]-  Done                    time ./p1
+[2]+  Done                    time ./p2
+
+$ time ./p2 & time ./p1 &
+[1] 758
+[2] 759
+Job 1 done
+real	0m11.537s
+user	0m0.513s
+sys	0m4.073s
+Job 2 done
+real	0m22.756s
+user	0m0.547s
+sys	0m4.043s
+[1]-  Done                    time ./p2
+[2]+  Done                    time ./p1
+
+$ time ./p2 & time ./p1 &
+[1] 765
+[2] 766
+Job 1 done
+real	0m11.524s
+user	0m0.570s
+sys	0m4.020s
+Job 2 done
+real	0m22.602s
+user	0m0.553s
+sys	0m3.977s
+[1]-  Done                    time ./p2
+[2]+  Done                    time ./p1

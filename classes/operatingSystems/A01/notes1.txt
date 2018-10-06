@@ -1,0 +1,14 @@
+2open
+2read
+2write
+2close
+2stat
+2exit
+*printf
+*perror
+$strncat
+$strncpy
+$strlen
+
+man 2 ...
+for system call manual pages

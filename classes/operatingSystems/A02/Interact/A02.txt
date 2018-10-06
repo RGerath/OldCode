@@ -1,0 +1,8 @@
+Bob Gerath
+OS A02
+"Interact" Questions
+
+1 - Is the code for this program better or worse than that which used read and write? How?
+
+
+2 - Under what circumstances might you prefer one approach over the other?

@@ -1,0 +1,30 @@
+Bob Gerath
+
+OS A02
+
+"Interact"
+Questions
+
+
+
+1 - Is the code for this program better or worse than that which used 'read' and 'write'? How?
+
+
+
+The code for the program which used 'read' and 'write' was less efficient in its use of a fixed buffer. By hard-coding the buffer to a constant value, the 'read' and 'write' operations would be iterated several times for source files that significantly exceeded that constant in size. This is one advantage of simple-cp2 over simple-cp, but it is not necessarily an advantage of 'mmap' I/O over 'read/write'. It would be easy to replace the code for simple-cp that defines fixed buffer with code which uses the same 'fstat' techniques used in simple-cp2 to programmatically define the buffer as the size of the source file.
+
+
+
+A bigger difference between the two programs is the fact that simple-cp uses a single buffer to make the transfer between source and destination while simple-cp effectively uses two. The 'read' call in simple-cp copies information from the source to some block of memory, and the 'write' call uses the same block of memory to populate the destination. In simple-cp2, twice as much space is used. First, a block of memory is populated with the contents of the destination, then a block of memory is populated by the contents of the source, and then the contents of the source are copied into the block designated to the destination.
+
+
+
+I am not convinced that this is necessarily an advantage of 'read/write' over 'mmap', however, any more than the time efficiency described in the first paragraph represents the reverse. It may be that instead of using two memory mappings and a memory copy, the same result could be achieved with a program that creates a memory mapping for the destination and overwrites it with a memory mapping for the source before synchronizing that block of memory back to the source and destination files. However, I wasn't able to get this to work in my testing.
+
+
+
+2 - Under what circumstances might you prefer one approach over the other?
+
+
+
+With the two programs as they are, the obvious deciding factor between the two is whether space or time is more important. As they currently stand, the simple-cp program makes better use of space and poorer use of time, whereas the simple-cp2 program would appear to make better use of time and poorer use of space.

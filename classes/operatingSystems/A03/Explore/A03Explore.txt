@@ -1,0 +1,44 @@
+Bob Gerath
+OS A03
+Explore
+
+
+What is the benefit of having variable-sized time slices?
+
+Variable time slices are valuable for systems which need to run both interactive and CPU-bound threads at once. By assigning a larger time slice to a batch thread of low priority, the CPU will need to context-switch to that thread fewer times before it resolves, thus making more efficient use of the processor and resolving the thread more quickly.
+
+Likewise, by assigning a relatively interactive thread a relatively small time slice, that thread will less frequently commit unscheduled blocks as it waits for input. If the thread requires input at some period into a small time slice, there will be less time left over by the block than if input was required after the same period into a larger time slice.
+
+
+
+Why is INvoluntary sleep time not an effective measurement to fold into the interactivity score?
+
+As stated in section 3.2, involuntary sleep time does not demonstrate real interactivity. A high involuntary sleep time indicates nothing more than that a thread has spent much of its run-time being interrupted. This has more to do with the urgency and relatively high priority of other threads than with the interrupted thread's dependence on user input. Only threads which spend significant time in voluntary sleep can be assured of frequently sleeping on conditions.
+
+
+
+How, if time spent sleeping was remembered for too long, could a previously interactive process be allowed to abuse the system?
+
+If sleep time was remembered indefinitely, a process which was at one point highly interactive (that is, its sleep time greatly exceeded its run time), but at a later point stopped both running and voluntarily sleeping (possibly due to a lowered priority and more frequent involuntary sleeps), the process would retain a numerically low interactivity score for a long time, even if it no longer depended on user input.
+
+Conceivably, this could allow a thread to build a highly interactive score before going 'dormant,' at which point all its future operations would be CPU bound. The result would be a high-priority thread using its undue access to the CPU to perform batch-like operations. This would take CPU time away from other threads and slow the system down, as the frequent context switches implicit in the offending thread's interactively-small time slices would mismanage its more optimally batch operations.
+
+
+
+What did you like about the paper?
+
+The paper helped to fortify the theory and practice of scheduling in operating systems. Taken with the glossary of terms provided on the A03 page, I found the paper relatively easy to follow. Many of the points made about the development of ULE made sense and for the most part I could come to terms with the author's reasoning. Concepts like interactivity and nice were presented in a fresh context, allowing me to corroborate and enhance my existing knowledge.
+
+
+
+What didn't you like about it?
+
+There are still several things I don't quite understand about scheduling, and which the paper didn't clarify as well as it might.
+
+As an example, I found it difficult to determine exactly how the kseq system worked. The paper states that a thread in 'current' is placed in 'next' as soon as it sleeps or runs out of a time slice. But it also says that thread's interactivity is recalculated every time it runs out of a time slice, and that all interactive threads are placed in the 'current' queue. I am not sure whether this means an interactive thread may continually be recycled into the 'current' queue or whether it is only when a new thread is started that its interactivity determines to which queue it is assigned.
+
+
+
+How crazy is the first sentence of section 7?
+
+Pretty crazy. They do say all writing is rewriting.

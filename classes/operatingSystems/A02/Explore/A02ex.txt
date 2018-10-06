@@ -1,0 +1,24 @@
+Bob Gerath
+Assignment 02
+Explore - Methodologies and Results
+
+
+Part 1:
+
+To demonstrate that the system does not select the same virtual address for every process' first mmap() call, I wrote a simple program to call mmap() with addr=0 and print the returned address. By running this program multiple times, I could see that the returned value was not always the same:
+
+[bob1@os_linux_01 Explore]$ ./A02ex1
+0x7f35071c8000
+[bob1@os_linux_01 Explore]$ ./A02ex1
+0x7f2086823000
+
+
+Part 2:
+
+I wrote a program which copies increasingly large sections of a source file into memory, saving at each copy the least and greatest addresses previously returned by the mmap() operation. This provided me with a range of the addresses chosen by the process.
+
+[bob1@os_linux_01 A02]$ ./ex2
+Least:		0x7f9625ecd000
+Greatest:	0x7f9626953000
+
+I found that these addresses tend not to deviate particularly far from the address returned by the first mmap() operation, and that all those first addresses tend to group in the neighborhood of 0x7f----------
